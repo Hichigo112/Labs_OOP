@@ -39,12 +39,24 @@ void Set::Copy(const int* setElements, const int power)
 
 void Set::AddElement(const int element)
 {
-	int* temp = _setElements;
-	_setElements = new int[_power+1];
-	Copy(temp, _power);
-	_power++;
-	_setElements[_power - 1] = element;
-	delete[] temp;
+	int check = 0;
+	for (int i = 0; i < _power ; i++)
+	{
+		if (element != _setElements[i])
+		{
+			check++;
+		}
+	}
+	if (check == _power)
+	{
+		int* temp = _setElements;
+		_setElements = new int[_power + 1];
+		Copy(temp, _power);
+		_power++;
+		_setElements[_power - 1] = element;
+		delete[] temp;
+	}
+
 }
 
 bool Set::IsIntersect(const Set& source) const
