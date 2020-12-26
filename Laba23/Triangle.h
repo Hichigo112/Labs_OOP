@@ -4,7 +4,7 @@
 class Triangle : public Shape
 {
 public:
-	Triangle(Point* cords);
+	Triangle(const Point* cords);
 
 	double Area() const override;
 	Point CenterOfGravity() const override;

@@ -3,7 +3,7 @@
 
 using std::logic_error;
 
-Triangle::Triangle(Point* cords)
+Triangle::Triangle(const Point* cords)
 {
 	_countSides = 3;
 	_cords = new Point[_countSides];

@@ -2,7 +2,7 @@
 #include <stdexcept>
 using std::logic_error;
 
-Shape* Factory::createShape(Point* cords, int number)
+Shape* Factory::createShape(const Point* cords, int number)
 {
 	if (number == 3)
 	{

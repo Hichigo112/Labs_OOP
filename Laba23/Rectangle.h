@@ -4,7 +4,7 @@
 class Rectangle : public Shape
 {
 public:
-	Rectangle(Point* cords);
+	Rectangle(const Point* cords);
 
 	double Area() const override;
 	Point CenterOfGravity() const override;

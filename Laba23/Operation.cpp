@@ -1,6 +1,6 @@
 #include "Operation.h"
 
-int Operation::Compare(Shape& shape1, Shape& shape2) const
+int Operation::Compare(const Shape& shape1, const Shape& shape2) const
 {
 	double area1 = shape1.Area();
 	double area2 = shape2.Area();
@@ -22,7 +22,7 @@ double Operation::GetLength(const Point& dot1, const Point& dot2) const
 	return length;
 }
 
-bool Operation::IsIntersect(Shape& shape1, Shape& shape2) const
+bool Operation::IsIntersect(const Shape& shape1, const Shape& shape2) const
 {
 	double radiusF = shape1.GetRadius();
 	double radiusS = shape2.GetRadius();
@@ -41,7 +41,7 @@ bool Operation::IsIntersect(Shape& shape1, Shape& shape2) const
 	}
 }
 
-bool Operation::IsInclude(Shape& shape1, Shape& shape2) const
+bool Operation::IsInclude(const Shape& shape1, const Shape& shape2) const
 {
 	double radiusF = shape1.GetRadius();
 	double radiusS = shape2.GetRadius();

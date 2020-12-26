@@ -39,7 +39,7 @@ int ConsoleInteractor::GetIndex(const string& name) const
 
 void ConsoleInteractor::CreateShape() const
 {
-	Factory shape;
+	Factory factory;
 	string name;
 	int countVertex;
 	cout << "name the Shape\n";
@@ -70,13 +70,13 @@ void ConsoleInteractor::CreateShape() const
 
 	if (FreePlace)
 	{
-		Shape* newEl = nullptr;
+		Shape* shape = nullptr;
 
 		try
 		{
-			newEl = shape.createShape(dots,countVertex);
+			shape = factory.createShape(dots,countVertex);
 			_names[index] = name;
-			_cases[index] = newEl;
+			_cases[index] = shape;
 		}
 		catch (const std::logic_error & src)
 		{

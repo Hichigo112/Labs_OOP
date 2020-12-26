@@ -14,7 +14,7 @@ struct Point
 class Shape
 {
 public:
-	Shape(): _cords(nullptr), _countSides(0), _lengthSide(nullptr), PI(3.141) {}
+	Shape(): _cords(nullptr), _countSides(0), _lengthSide(nullptr), PI(acos(-1)) {}
 	virtual ~Shape();
 
 	virtual double Area() const = 0;

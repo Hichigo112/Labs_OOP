@@ -3,16 +3,16 @@
 
 using std::logic_error;
 
-Rectangle::Rectangle(Point* cords)
+Rectangle::Rectangle(const Point* cords)
 {
 	_countSides = 4;
 	_cords = new Point[_countSides];
 	_lengthSide = new double[_countSides];
-	memcpy(_cords, cords, sizeof(Point) * _countSides);
+	memcpy(_cords, &cords, sizeof(Point) * _countSides);
 
 	for (int i = 0; i < _countSides; i++)
 	{
-		_lengthSide[i] = GetLength(cords[i], cords[(i + 1) % _countSides]);
+		_lengthSide[i] = GetLength(_cords[i], _cords[(i + 1) % _countSides]);
 	}
 
 	if (!TrueShape())
