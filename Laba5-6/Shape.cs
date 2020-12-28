@@ -23,6 +23,18 @@ namespace Laba56
 		}
 		protected int _countSides;
 		protected double[] _lengthSide;
+		public Shape(Point[] cords, int countSides)
+		{
+			_countSides = countSides;
+			_cords = new Point[_countSides];
+			_lengthSide = new double[_countSides];
+			Array.Copy(cords, _cords, _countSides);
+
+			for (int i = 0; i < _countSides; i++)
+			{
+				_lengthSide[i] = GetLength(cords[i], cords[(i + 1) % _countSides]);
+			}
+		}
 
 		abstract public Point CenterOfGravity();
 		abstract public double Area();

@@ -6,24 +6,8 @@ namespace Laba56
 {
     public class Rectangle : Shape
     {
-		public Rectangle(Point[] cords)
-		{
-			_countSides = 4;
-			_cords = new Point[_countSides];
-			_lengthSide = new double[_countSides];
-			Array.Copy(cords, _cords, _countSides);
-
-			for (int i = 0; i < _countSides; i++)
-			{
-				_lengthSide[i] = GetLength(cords[i], cords[(i + 1) % _countSides]);
-			}
-
-			if (!TrueShape())
-			{
-				throw new ArgumentOutOfRangeException("WRONG_RECTANGLE");
-			}
-		}
-        public override bool TrueShape()
+		public Rectangle(Point[] cords) : base(cords, 4) { TrueShape(); }
+		public override bool TrueShape()
         {
 			if (_lengthSide[0] == _lengthSide[2] && _lengthSide[1] == _lengthSide[3] && (_lengthSide[0] != 0 && _lengthSide[1] != 0))
 			{

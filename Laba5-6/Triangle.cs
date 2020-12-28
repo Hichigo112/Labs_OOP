@@ -6,25 +6,10 @@ namespace Laba56
 {
 	public class Triangle : Shape
 	{
-		public Triangle(Point[] cords)
-		{
-			_countSides = 3;
-			_cords = new Point[_countSides];
-			_lengthSide = new double[_countSides];
-			Array.Copy(cords, _cords, _countSides);
+		public Triangle(Point[] cords) : base (cords, 3) { TrueShape(); }
 
-			for (int i = 0; i < _countSides; i++)
-			{
-				_lengthSide[i] = GetLength(cords[i], cords[(i + 1) % _countSides]);
-			}
 
-			if (!TrueShape())
-			{
-				throw new ArgumentOutOfRangeException("WRONG_TRIANGLE");
-			}
-		}
-
-        public override bool TrueShape()
+		public override bool TrueShape()
         {
 			if ((_lengthSide[0] + _lengthSide[1] > _lengthSide[2]) && (_lengthSide[1] + _lengthSide[2] > _lengthSide[0]) && (_lengthSide[2] + _lengthSide[0] > _lengthSide[1]))
 			{
