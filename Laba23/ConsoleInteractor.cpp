@@ -10,11 +10,11 @@ ConsoleInteractor::~ConsoleInteractor()
 	{
 		if (_names[i] != "")
 		{
-			delete _cases[i];
+			delete _storage[i];
 		}
 	}
 	delete[] _names;
-	delete[] _cases;
+	delete[] _storage;
 }
 
 ConsoleInteractor::ConsoleInteractor()
@@ -22,7 +22,7 @@ ConsoleInteractor::ConsoleInteractor()
 	cout << "how many shape?\n";
 	cin >> _count;
 	_names = new string[_count];
-	_cases = new Shape* [_count];
+	_storage = new Shape* [_count];
 }
 
 int ConsoleInteractor::GetIndex(const string& name) const
@@ -68,6 +68,8 @@ void ConsoleInteractor::CreateShape() const
 		}
 	}
 
+
+
 	if (FreePlace)
 	{
 		Shape* shape = nullptr;
@@ -76,7 +78,7 @@ void ConsoleInteractor::CreateShape() const
 		{
 			shape = factory.createShape(dots,countVertex);
 			_names[index] = name;
-			_cases[index] = shape;
+			_storage[index] = shape;
 		}
 		catch (const std::logic_error & src)
 		{
@@ -103,8 +105,8 @@ void ConsoleInteractor::DeleteShape() const
 	else
 	{
 		_names[GetIndex(name)] = "";
-		delete _cases[GetIndex(name)];
-		_cases[GetIndex(name)] = nullptr;
+		delete _storage[GetIndex(name)];
+		_storage[GetIndex(name)] = nullptr;
 	}
 }
 
@@ -115,7 +117,7 @@ void ConsoleInteractor::PrintShape() const
 	cin >> name;
 	if (GetIndex(name) != -1)
 	{
-		cout << _cases[GetIndex(name)]->ToString() << "\n";
+		cout << _storage[GetIndex(name)]->ToString() << "\n";
 	}
 	else
 	{
@@ -133,7 +135,7 @@ void ConsoleInteractor::Compare() const
 	cin >> name2;
 	if ((GetIndex(name1) && GetIndex(name2)) != -1)
 	{
-		switch (operation.Compare(*_cases[GetIndex(name1)], *_cases[GetIndex(name2)]))
+		switch (operation.Compare(*_storage[GetIndex(name1)], *_storage[GetIndex(name2)]))
 		{
 		case 1:
 			cout << "First shape larger than second\n";
@@ -155,17 +157,14 @@ void ConsoleInteractor::Compare() const
 void ConsoleInteractor::Move() const
 {
 	string name;
-	char side;
-	int how;
+	int x , y;
 	cout << "Name of shape?\n";
 	cin >> name;
 	if (GetIndex(name) != -1)
 	{
-		cout << "Which side?(u-up, l-left, r-right, d-down)\n>>";
-		cin >> side;
-		cout << "How much\n>>";
-		cin >> how;
-		_cases[GetIndex(name)]->Move(side, how);
+		cout << "How much x and y\n>>";
+		cin >> x >> y;
+		_storage[GetIndex(name)]->Move(x, y);
 	}
 	else
 	{
@@ -183,7 +182,7 @@ void ConsoleInteractor::Rotate() const
 	{
 		cout << "Enter angle\n>>";
 		cin >> angle;
-		_cases[GetIndex(name)]->Rotate(angle);
+		_storage[GetIndex(name)]->Rotate(angle);
 	}
 	else
 	{
@@ -198,7 +197,7 @@ void ConsoleInteractor::Area() const
 	cin >> name;
 	if (GetIndex(name) != -1)
 	{
-		cout << "Area of this shape is " << _cases[GetIndex(name)]->Area() << "\n";
+		cout << "Area of this shape is " << _storage[GetIndex(name)]->Area() << "\n";
 	}
 	else
 	{
@@ -216,7 +215,7 @@ void ConsoleInteractor::IsIntersect() const
 	cin >> name2;
 	if (GetIndex(name1) != -1 && (GetIndex(name2)) != -1)
 	{
-		if (operation.IsIntersect(*_cases[GetIndex(name1)], *_cases[GetIndex(name2)]))
+		if (operation.IsIntersect(*_storage[GetIndex(name1)], *_storage[GetIndex(name2)]))
 		{
 			cout << "Shapes intersect\n";
 		}
@@ -238,7 +237,7 @@ void ConsoleInteractor::CenterOfGravity() const
 	cin >> name;
 	if (GetIndex(name) != -1)
 	{
-		Point centerOfGraviry = _cases[GetIndex(name)]->CenterOfGravity();
+		Point centerOfGraviry = _storage[GetIndex(name)]->CenterOfGravity();
 		cout << "Center of gravity this shape " << centerOfGraviry.x << " " << centerOfGraviry.y << "\n";
 	}
 	else
@@ -257,7 +256,7 @@ void ConsoleInteractor::IsInclude() const
 	cin >> name2;
 	if (GetIndex(name1) != -1 && (GetIndex(name2) != -1))
 	{
-		if (operation.IsInclude(*_cases[GetIndex(name1)], *_cases[GetIndex(name2)]))
+		if (operation.IsInclude(*_storage[GetIndex(name1)], *_storage[GetIndex(name2)]))
 		{
 			cout << "Shapes is include\n";
 		}
@@ -274,8 +273,7 @@ void ConsoleInteractor::IsInclude() const
 
 void ConsoleInteractor::Help() const
 {
-	cout << "\"1\" - Create new Shape\n\"2\" - Help\n\"3\" - Compare\n\"4\" - IsInclude \n\"5\" - IsIntersect\n\
-\"6\" - Print Shape\n\"7\" - Move\n\"8\" - Rotate\n\"9\" - Area\n\"10\" - Get Center\n\"11\" - Delete Shape\n\"12\" - Exit\n";
+	cout << "1 - Create new Shape\n 2 - Help\n 3 - Compare\n 4 - IsInclude \n 5 - IsIntersect\n 6 - Print Shape\n 7 - Move\n 8 - Rotate\n 9 - Area\n 10 - Get Center\n 11 - Delete Shape\n 12 - Exit\n";
 }
 
 void ConsoleInteractor::Init() const

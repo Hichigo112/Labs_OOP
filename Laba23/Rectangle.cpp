@@ -3,31 +3,14 @@
 
 using std::logic_error;
 
-Rectangle::Rectangle(const Point* cords)
-{
-	_countSides = 4;
-	_cords = new Point[_countSides];
-	_lengthSide = new double[_countSides];
-	memcpy(_cords, &cords, sizeof(Point) * _countSides);
 
-	for (int i = 0; i < _countSides; i++)
-	{
-		_lengthSide[i] = GetLength(_cords[i], _cords[(i + 1) % _countSides]);
-	}
-
-	if (!TrueShape())
-	{
-		throw logic_error("WRONG_RECTANGLE");
-	}
-}
-
-bool Rectangle::TrueShape() const
+void Rectangle::TrueShape() const
 {
 	if (_lengthSide[0] == _lengthSide[2] && _lengthSide[1] == _lengthSide[3] && (_lengthSide[0] != 0 && _lengthSide[1] != 0))
 	{
-		return true;
+		return;
 	}
-	return false;
+	throw logic_error("WRONG_RECTANGLE");
 }
 
 double Rectangle::Area() const

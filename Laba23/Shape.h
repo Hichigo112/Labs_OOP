@@ -14,15 +14,15 @@ struct Point
 class Shape
 {
 public:
-	Shape(): _cords(nullptr), _countSides(0), _lengthSide(nullptr), PI(acos(-1)) {}
+	Shape(const Point* cords, int _countSide);
 	virtual ~Shape();
 
 	virtual double Area() const = 0;
 	virtual Point CenterOfGravity() const = 0;
-	void Move(const char side, const int how);
+	void Move(int x, int y);
 	void Rotate(const int angle);
 	string ToString() const;
-	virtual bool TrueShape() const = 0;
+	virtual void TrueShape() const = 0;
 	virtual double GetRadius() const = 0;
 
 protected:

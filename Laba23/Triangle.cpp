@@ -3,31 +3,15 @@
 
 using std::logic_error;
 
-Triangle::Triangle(const Point* cords)
-{
-	_countSides = 3;
-	_cords = new Point[_countSides];
-	_lengthSide = new double[_countSides];
-	memcpy(_cords, cords, sizeof(Point) * _countSides);
 
-	for (int i = 0; i < _countSides; i++)
-	{
-		_lengthSide[i] = GetLength(cords[i], cords[(i+1)%_countSides]);
-	}
-
-	if (!TrueShape())
-	{
-		throw logic_error("WRONG_TRIANGLE");
-	}
-}
-bool Triangle::TrueShape() const
+void Triangle::TrueShape() const
 {
 	if ((_lengthSide[0] + _lengthSide[1] > _lengthSide[2]) && (_lengthSide[1] + _lengthSide[2] > _lengthSide[0])\
 		&& (_lengthSide[2] + _lengthSide[0] > _lengthSide[1]))
 	{
-		return true;
+		return;
 	}
-	return false;
+	throw logic_error("WRONG_TRIANGLE");
 }
 
 double Triangle::Perimeter() const

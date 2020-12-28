@@ -26,7 +26,7 @@ private:
 	void Area() const;
 	void CenterOfGravity() const;
 
-	Shape** _cases = nullptr;
+	Shape** _storage = nullptr;
 	string* _names = nullptr;
 	int _count = 0;
 };

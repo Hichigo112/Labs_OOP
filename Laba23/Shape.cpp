@@ -6,33 +6,24 @@ Shape::~Shape()
 	delete[] _lengthSide;
 }
 
-void Shape::Move(const char side, const int how)
+Shape::Shape(const Point* cords, int countSide): PI(acos(-1)), _countSides(countSide)
 {
-	switch (side)
+	_cords = new Point[_countSides];
+	_lengthSide = new double[_countSides];
+	memcpy(_cords, cords, sizeof(Point) * _countSides);
+
+	for (int i = 0; i < _countSides; i++)
 	{
-	case 'r':
-		for (int i = 0; i < _countSides; i++)
-		{
-			_cords[i].x += how;
-		}
-		break;
-	case 'l':
-		for (int i = 0; i < _countSides; i++)
-		{
-			_cords[i].x -= how;
-		}
-		break;
-	case 'u':
-		for (int i = 0; i < _countSides; i++)
-		{
-			_cords[i].y += how;
-		}
-		break;
-	case 'd':
-		for (int i = 0; i < _countSides; i++)
-		{
-			_cords[i].y -= how;
-		}
+		_lengthSide[i] = GetLength(cords[i], cords[(i + 1) % _countSides]);
+	}
+}
+
+void Shape::Move(int x, int y)
+{
+	for (int i = 0; i < _countSides; i++)
+	{
+		_cords[i].x += x;
+		_cords[i].y += y;
 	}
 }
 
