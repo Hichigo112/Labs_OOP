@@ -1,0 +1,15 @@
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.exe
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.deps.json
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.runtimeconfig.json
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.runtimeconfig.dev.json
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.dll
+C:\Users\User\source\repos\Laba56\Laba56\bin\Debug\netcoreapp3.1\Laba56.pdb
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.Form1.resources
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.AssemblyInfo.cs
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.dll
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.pdb
+C:\Users\User\source\repos\Laba56\Laba56\obj\Debug\netcoreapp3.1\Laba56.genruntimeconfig.cache
