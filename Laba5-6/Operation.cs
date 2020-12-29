@@ -22,24 +22,24 @@ namespace Laba56
 			return 0;
 		}
 
-		public bool IsIntersect(Shape shape1, Shape shape2)
+		public bool IsIntersectRadius(Shape shape1, Shape shape2)
         {
-			double radiusF = shape1.GetRadius();
-			double radiusS = shape2.GetRadius();
+            double radiusF = shape1.GetRadius();
+            double radiusS = shape2.GetRadius();
 
-			Point centerF = shape1.CenterOfGravity();
-			Point centerS = shape2.CenterOfGravity();
-			double length = GetLength(centerF, centerS);
+            Point centerF = shape1.CenterOfGravity();
+            Point centerS = shape2.CenterOfGravity();
+            double length = GetLength(centerF, centerS);
 
-			if (radiusF + radiusS >= length && length > Math.Abs(radiusF - radiusS))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+            if (radiusF + radiusS >= length && length > Math.Abs(radiusF - radiusS))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		public double GetLength(Point dot1, Point dot2)
         {
@@ -47,7 +47,7 @@ namespace Laba56
 			return length;
 		}
 
-		public bool IsInclude(Shape shape1, Shape shape2)
+		public bool IsIncludeRadius(Shape shape1, Shape shape2)
         {
 			double radiusF = shape1.GetRadius();
 			double radiusS = shape2.GetRadius();

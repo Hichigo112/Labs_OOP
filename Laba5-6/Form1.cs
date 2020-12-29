@@ -184,8 +184,8 @@ namespace Laba56
 
             for (int i = 0; i < countVertex; i++)
             {
-                dots[i].x = Convert.ToInt32(arrX[i].Text);
-                dots[i].y = Convert.ToInt32(arrY[i].Text);
+                dots[i].x = Convert.ToDouble(arrX[i].Text);
+                dots[i].y = Convert.ToDouble(arrY[i].Text);
             }
 
             Shape shape = null;
@@ -316,7 +316,7 @@ namespace Laba56
             Operation operation = new Operation();
             if (checkBox1.Items.Count != 0 && checkBox2.Items.Count != 0 && checkBox1.SelectedIndex != -1 && checkBox2.SelectedIndex != -1)
             {
-                if (operation.IsIntersect(_cases[checkBox1.SelectedIndex], _cases[checkBox2.SelectedIndex]))
+                if (operation.IsIntersectRadius(_cases[checkBox1.SelectedIndex], _cases[checkBox2.SelectedIndex]))
                 {
                     richTextBox1.Text = "yes";
                 }
@@ -339,7 +339,7 @@ namespace Laba56
             Operation operation = new Operation();
             if (checkBox1.Items.Count != 0 && checkBox2.Items.Count != 0 && checkBox1.SelectedIndex != -1 && checkBox2.SelectedIndex != -1)
             {
-                if (operation.IsInclude(_cases[checkBox1.SelectedIndex], _cases[checkBox2.SelectedIndex]))
+                if (operation.IsIncludeRadius(_cases[checkBox1.SelectedIndex], _cases[checkBox2.SelectedIndex]))
                 {
                     richTextBox1.Text = "yes";
                 }

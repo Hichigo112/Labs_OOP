@@ -52,13 +52,18 @@ namespace Laba56
 		public void Rotate(int angle)
 		{
 			Point centerOfGravity = CenterOfGravity();
-			double sinA = Math.Sin((double)angle * Math.PI / 180);
-			double cosA = Math.Cos((double)angle * Math.PI / 180);
-
+			double sinA = Math.Sin((Convert.ToDouble(angle) * Math.Acos(-1) / 180));
+			double cosA = Math.Cos((Convert.ToDouble(angle) * Math.Acos(-1) / 180));
 			for (int i = 0; i < _countSides; i++)
 			{
-				_cords[i].x = (_cords[i].x - centerOfGravity.x) * cosA - (_cords[i].y - centerOfGravity.y) * sinA + centerOfGravity.x;
-				_cords[i].y = (_cords[i].x - centerOfGravity.x) * sinA - (_cords[i].y - centerOfGravity.y) * cosA + centerOfGravity.y;
+				_cords[i].x -= centerOfGravity.x;
+				_cords[i].y -= centerOfGravity.y;
+
+				double newx = _cords[i].x * cosA - _cords[i].y * sinA;
+				double newy = _cords[i].x * sinA + _cords[i].y * cosA;
+
+				_cords[i].x = newx + centerOfGravity.x;
+				_cords[i].y = newy + centerOfGravity.y;
 			}
 		}
 		public string GetString()
@@ -66,7 +71,7 @@ namespace Laba56
 			string res = "";
 			for (int i = 0; i < _countSides; i++)
 			{
-				res += (i) + ") - x: " + (_cords[i].x) + " y: " + (_cords[i].y) + "\n";
+				res += (i) + ") - x: " + string.Format("{0:F3}", _cords[i].x) + " y: " + string.Format("{0:F3}", _cords[i].y) + "\n";
 			}
 			return res;
 		}

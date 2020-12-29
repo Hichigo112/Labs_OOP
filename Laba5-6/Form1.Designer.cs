@@ -205,7 +205,7 @@ namespace Laba56
             // 
             // Compare
             // 
-            this.Compare.Location = new System.Drawing.Point(136, 72);
+            this.Compare.Location = new System.Drawing.Point(164, 72);
             this.Compare.Name = "Compare";
             this.Compare.Size = new System.Drawing.Size(75, 23);
             this.Compare.TabIndex = 13;
@@ -217,9 +217,9 @@ namespace Laba56
             // 
             this.InClude.Location = new System.Drawing.Point(37, 72);
             this.InClude.Name = "InClude";
-            this.InClude.Size = new System.Drawing.Size(75, 23);
+            this.InClude.Size = new System.Drawing.Size(105, 23);
             this.InClude.TabIndex = 14;
-            this.InClude.Text = "InClude";
+            this.InClude.Text = "InCludeCircle";
             this.InClude.UseVisualStyleBackColor = true;
             this.InClude.Click += new System.EventHandler(this.InClude_Click);
             // 
@@ -227,9 +227,9 @@ namespace Laba56
             // 
             this.IsIntersect.Location = new System.Drawing.Point(37, 46);
             this.IsIntersect.Name = "IsIntersect";
-            this.IsIntersect.Size = new System.Drawing.Size(75, 23);
+            this.IsIntersect.Size = new System.Drawing.Size(105, 23);
             this.IsIntersect.TabIndex = 15;
-            this.IsIntersect.Text = "IsIntersect";
+            this.IsIntersect.Text = "IsIntersectCircle";
             this.IsIntersect.UseVisualStyleBackColor = true;
             this.IsIntersect.Click += new System.EventHandler(this.IsIntersect_Click);
             // 
