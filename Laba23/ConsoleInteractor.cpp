@@ -51,9 +51,9 @@ void ConsoleInteractor::CreateShape() const
 
 	for (int i = 0; i < countVertex; i++)
 	{
-		cout << "\n" << i + 1 << ") x: \n>>";
+		cout << "\n" <<"x: ";
 		cin >> dots[i].x;
-		cout << "\n" << i + 1 << ") y: \n>>";
+		cout<< "y: ";
 		cin >> dots[i].y;
 	}
 	
